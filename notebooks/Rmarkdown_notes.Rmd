@@ -1,0 +1,47 @@
+---
+title: "Rmarkdown_notes"
+author: "Korin Eckstrom"
+output: html_document
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(here)
+library(tidyverse)
+```
+
+
+## Analysis of Life Expectancy by Continent
+Hypothesize taht life expectancy is a function of location and XX
+
+[Link to github repo](https://github.com/keckstrom/2019-04-02-carpentries-mmc)
+
+
+```{r, echo=FALSE, message=FALSE}
+#Read in the data
+d <- readr::read_csv(here("data/gapminder/raw/gapminder_data.csv"))
+
+d %>%
+  filter(continent == "Africa") %>%
+  ggplot( aes(x= year, y= lifeExp)) + 
+  geom_line() + facet_wrap(~country)
+
+#population over time
+ggplot(data = filter(d, continent == "Asia")) + geom_line(aes(x= year, y= pop,
+                            group=country, color = country))
+
+
+```
+
+
+## Details
+The data consists of years from `r range(d$year)`.
+
+
+# this will automatically update the report from the dataset in the document
+# may need to use round if you aren't working with year (i.e. how many digits to print)
+
+```{}
+
+```
+
