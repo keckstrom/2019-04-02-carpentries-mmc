@@ -55,6 +55,8 @@ ggplot(data = gapminder, aes(x= year, y= lifeExp, color = continent)) +
 
 # filtering with dpylr
 
+
+# make a plot of life expectancy in African countries
 gapminder %>%
   filter(continent == "Africa") %>%
   ggplot( aes(x= year, y= lifeExp)) + 
